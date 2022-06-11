@@ -1,0 +1,12 @@
+#!/bin/sh
+
+alias \
+	sudo=doas \
+	ls='exa -al --color=always --group-directories-first' \
+	p='doas pacman -S' \
+	pacman='doas pacman' \
+	vimu='\sudo nvim' \
+	cat='bat -n' \
+	grep='grep --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}' \
+	ytd="yt-dlp -f 'bv[height<=1080][ext=mp4]+ba'" \
+    gitdot="/usr/bin/git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME"

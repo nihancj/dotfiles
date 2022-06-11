@@ -1,0 +1,29 @@
+# Basic binds
+super + Return
+        $TERMINAL
+super + p
+        dmenu-custom
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+        pactl -- set-sink-volume 0 {+,-}5% ; volnoti.sh ; kill -38 $(pidof dwmblocks)
+XF86AudioMute
+        pactl -- set-sink-mute 0 toggle ; volnoti.sh ; kill -38 $(pidof dwmblocks)
+{XF86Mail,XF86Search}
+        xbacklight -{dec 5,inc 5}
+super + shift + r
+        pkill -USR1 -x sxhkd
+super + shift + q
+        quit.sh
+
+# Hotkeys
+super + shift + p
+        dmenu_run
+super + {v,shift + v}
+        launch_workspace_program.sh { ,+}
+super + e
+        emojis
+shift + {XF86Mail,XF86Search}
+        xbacklight -{dec 1,inc 1}
+shift + {XF86AudioRaiseVolume,XF86AudioLowerVolume}
+        pactl -- set-sink-volume 0 {+,-}1% ; volnoti.sh ; kill -38 $(pidof dwmblocks)
+Alt_R
+	caps_check.sh &

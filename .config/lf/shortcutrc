@@ -1,0 +1,24 @@
+map t
+
+map tt cd ~
+map tc cd ~/.config
+map tl cd ~/.local
+map tD cd ~/Documents
+map td cd ~/Downloads
+map te cd ~/Desktop
+map tp. cd ~/Pictures
+map tps cd ~/Pictures/Screenshots
+map tpw. cd ~/Pictures/Wallpapers
+map tpwa cd ~/Pictures/Wallpapers/Anime
+map tf cd ~/Shared\ Folder
+map tv cd ~/Videos
+
+map tm cd ~/dmscripts
+map ts cd ~/scripts
+map tS. cd ~/sources
+map tSd cd ~/sources/dwm
+map tSm cd ~/sources/dmenu
+map tSs cd ~/sources/st
+map tSS cd ~/sources/surf
+
+map tm cd /media/user
