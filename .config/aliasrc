@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# sudo=doas \
+alias \
+	p='doas pacman -S' \
+	ls='exa -al --color=always --group-directories-first' \
+	pacman='doas pacman' \
+    vimu='~/sources/neovim/build/bin/nvim -u NONE' \
+	cat='bat -n' \
+	grep='grep --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}' \
+	ytd="yt-dlp -f 'bv[height<=1080][ext=mp4]+ba'" \
+    gitd='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME' \
+    wget=wget --hsts-file="$XDG_STATE_HOME/wget-hsts" \
