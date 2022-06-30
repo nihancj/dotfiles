@@ -5,8 +5,9 @@ alias \
 	ls='exa -al --color=always --group-directories-first' \
 	p='doas pacman -S' \
 	pacman='doas pacman' \
-	vimu='\sudo nvim' \
+	vimu='\doas nvim' \
 	cat='bat -n' \
 	grep='grep --color --exclude-dir={.bzr,CVS,.git,.hg,.svn}' \
 	ytd="yt-dlp -f 'bv[height<=1080][ext=mp4]+ba'" \
-    gitdot="/usr/bin/git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME"
+    gitd="/usr/bin/git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME" \
+    wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"

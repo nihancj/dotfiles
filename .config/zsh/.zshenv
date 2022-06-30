@@ -1,4 +1,3 @@
-
 # Paths
 export PATH=$PATH:$HOME/.local/bin:$HOME/.config/cargo/bin
 
@@ -26,10 +25,9 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export XAUTHORITY="$XDG_CONFIG_HOME"/X11/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig
+export ANDROID_HOME="$XDG_DATA_HOME"/android
 
 # pfetch settings
 # export PF_INFO="ascii title os host kernel uptime pkgs memory palette"
 # export PF_ASCII="Linux"
 # export PF_COL2="9"
-
-source ~/.config/lf/icons

@@ -50,8 +50,7 @@ keymap("n", "<C-i>", "<cmd>setlocal autoindent<CR>", opts)
 keymap("n", "<C-S>i", "<cmd>setlocal autoindent<CR>", opts)
 
 -- -- Transparency toggle
-keymap("n", "<C-t>", "<cmd>TransparentToggle<CR>", opts)
-keymap("n", "<C-S>t", "<cmd>TransparentDisable<CR>", opts)
+keymap("n", "<C-S>t", "<cmd>TransparentToggle<CR>", opts)
 
 -- Shellcheck and Spellcheck
 keymap("n", "<C-s>", "<cmd>!clear && shellcheck %<CR>", opts)
@@ -69,6 +68,7 @@ keymap("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
 keymap("n", "<leader>fgb", "<cmd>Telescope git_branch<CR>", opts)
 keymap("n", "<leader>fgc", "<cmd>Telescope git_commit<CR>", opts)
 keymap("n", "<leader>fgs", "<cmd>Telescope git_status<CR>", opts)
+keymap("n", "<leader>fp", "<cmd>Telescope project<CR>", opts)
 keymap("n", "<leader>f<space>", ":Telescope ", { noremap = true })
 
 

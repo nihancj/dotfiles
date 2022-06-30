@@ -2,20 +2,28 @@ map t
 
 map tt cd ~
 map tc cd ~/.config
-map tl cd ~/.local
+map tm cd ~/dmscripts
+map ts cd ~/scripts
 map tD cd ~/Documents
 map td cd ~/Downloads
 map te cd ~/Desktop
-map tp. cd ~/Pictures
-map tps cd ~/Pictures/Screenshots
-map tpw. cd ~/Pictures/Wallpapers
-map tpwa cd ~/Pictures/Wallpapers/Anime
 map tf cd ~/Shared\ Folder
 map tv cd ~/Videos
 
-map tm cd ~/dmscripts
-map ts cd ~/scripts
-map tS. cd ~/sources
+map tl<space> cd ~/.local
+map tlb cd ~/.local/bin
+map tls cd ~/.local/share
+
+map ta<space> cd ~/Applications
+map tan cd ~/Applications/nvim.AppDir
+map tas cd ~/Applications/st.AppDir
+
+map tp<space> cd ~/Pictures
+map tps cd ~/Pictures/Screenshots
+map tpw<space> cd ~/Pictures/Wallpapers
+map tpwa cd ~/Pictures/Wallpapers/Anime
+
+map tS<space> cd ~/sources
 map tSd cd ~/sources/dwm
 map tSm cd ~/sources/dmenu
 map tSs cd ~/sources/st

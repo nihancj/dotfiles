@@ -72,12 +72,12 @@ lualine.setup({
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = { branch, diagnostics },
+		lualine_a = {'mode', branch, diagnostics },
 		lualine_b = {
             {
                 'filename',
                 file_status = true, -- displays file status (read only, modified)
-                path = 1  -- 0 = just filename, 1 = relative path, 2 = absolute path
+                path = 1,  -- 0 = just filename, 1 = relative path, 2 = absolute path
             }
         },
 		lualine_c = {},

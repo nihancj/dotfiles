@@ -1,7 +1,7 @@
 local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
+if not config_status_ok then --{{{
   return
-end
+end --}}}
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
@@ -23,6 +23,14 @@ require'nvim-tree'.setup {
         { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
         { key = "h", cb = tree_cb "close_node" },
         { key = "v", cb = tree_cb "vsplit" },
+        { key = "a", cb = tree_cb "rename" },
+        { key = "i", cb = tree_cb "full_rename" },
+        { key = "o", cb = tree_cb "create" },
+        { key = "r", cb = tree_cb "refresh" },
+        { key = "d", cb = tree_cb "cut" },
+        { key = "R", cb = tree_cb "expand_all" },
+        { key = "M", cb = tree_cb "collapse_all" },
+        { key = ";", cb = tree_cb "cd" },
       },
     },
   },

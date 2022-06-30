@@ -5,10 +5,7 @@ require "plugins.nvim-web-devicons"
 require "plugins.bufferline"
 require "plugins.lualine"
 require "plugins.telescope"
+    require "telescope".load_extension ('project')
 require "plugins.autopairs"
 require "plugins.comment"
 require "plugins.null-ls"
-
--- Optional plugins
--- require "plugins.nvim-tree"
--- require "plugins.nvim-colorizer"

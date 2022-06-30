@@ -1,4 +1,6 @@
 local cmp_status_ok, cmp = pcall(require, "cmp")
+--{{{
+
 if not cmp_status_ok then
   return
 end
@@ -14,8 +16,9 @@ local check_backspace = function()
   local col = vim.fn.col "." - 1
   return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
+--}}}
 
---   פּ ﯟ   some other good icons
+--   פּ ﯟ   some other good icons {{{
 local kind_icons = {
   Text = " ",
   Method = "m ",
@@ -44,6 +47,7 @@ local kind_icons = {
   TypeParameter = " ",
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
+--}}}
 
 cmp.setup {
   snippet = {
@@ -66,6 +70,13 @@ cmp.setup {
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<;>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+            cmp.mapping.abort()
+        else
+            fallback()
+        end
+    end, { "i", "s" }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
@@ -101,9 +112,9 @@ cmp.setup {
       -- Kind icons
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.menu = ({
+        luasnip = "[Snippet]",
         nvim_lsp = "[LSP]",
         nvim_lua = "[NVIM_LUA]",
-        luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
@@ -111,9 +122,9 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = "luasnip" },
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
-    { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
   },

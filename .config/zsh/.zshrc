@@ -100,3 +100,6 @@ bindkey '^[[B' history-substring-search-down
 ## sources
 source "$HOME/.config/aliasrc"
 source $HOME/scripts/bash-insulter/bash-insulter
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus

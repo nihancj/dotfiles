@@ -25,5 +25,5 @@ shift + {XF86Mail,XF86Search}
         xbacklight -{dec 1,inc 1}
 shift + {XF86AudioRaiseVolume,XF86AudioLowerVolume}
         pactl -- set-sink-volume 0 {+,-}1% ; volnoti.sh ; kill -38 $(pidof dwmblocks)
-Alt_R
+Caps_Lock
 	caps_check.sh &

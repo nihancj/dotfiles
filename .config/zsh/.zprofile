@@ -1,6 +1,4 @@
-export ZDOTDIR=$HOME/.config/zsh
-
-[[ ! $DISPLAY && $XDG_VTNR -eq 1 ]] && sx "$XINITRC" ; logout
+[[ ! $DISPLAY && $XDG_VTNR -eq 1 ]] && sx "$XINITRC" >/dev/null ; logout
 
 #if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 #  exec startx /usr/local/bin/dwm  # remove the exec to remain logged in when your wm ends

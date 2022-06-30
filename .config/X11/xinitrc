@@ -1,5 +1,4 @@
+ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
 xrdb -merge -I$HOME ~/.local/share/Xresources/selected-colors &
-xset dpms 180 180 180 &
-sxhkd &
 sleep 2
 exec dwm

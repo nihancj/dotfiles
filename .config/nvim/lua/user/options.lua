@@ -1,4 +1,4 @@
-vim.cmd "colorscheme onedarker"
+vim.cmd "colorscheme codedark"
 -- vim.cmd "call background#disable()" -- Transparent  Disable
 vim.g.c_syntax_for_h = 1
 
