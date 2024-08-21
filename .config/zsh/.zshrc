@@ -9,21 +9,23 @@ export GPG_TTY=$(tty)
 # Luke's config for the Zoomer Shell
 
 # Enable colors and change prompt:
-autoload -U colors && colors
+# autoload -U colors && colors
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-PS1="%B%{$fg[green]%}%1~ $%{$reset_color%}%b "
+# PS1="%B%{$fg[green]%}%1~ $%{$reset_color%}%b "
 
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
-setopt histignoredups
+setopt histignoredups histignorespace
 
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 zstyle ':completion:*' menu no select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
@@ -64,7 +66,9 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Use lf to switch directories and bind it to ctrl-o
+
+# BINDKEYS
+# Use lf to switch directories and bind it to ctrl-l
 lfcd () {
     tmp="$(mktemp)"
     lfub -last-dir-path="$tmp" "$@"
@@ -75,14 +79,33 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-bindkey -s '^o' 'lfcd\n'
-bindkey -s '^[[27;5;13~' 'setsid foot 2>/dev/null\n'
+bindkey -s '^[l' 'lfcd\n'
+# copy the active line from the command line buffer onto the system clipboard
+copybuffer () {
+  if builtin which clipcopy &>/dev/null; then
+    printf "%s" "$BUFFER" | clipcopy
+  else
+    zle -M "clipcopy not found. Please make sure you have Oh My Zsh installed correctly."
+  fi
+}
+zle -N copybuffer
+bindkey -M emacs "^[o" copybuffer
+bindkey -M viins "^[o" copybuffer
+bindkey -M vicmd "^[o" copybuffer
+# Other bindkeys
+bindkey -s '^[e' 'setsid st 2>/dev/null\n'
+
 
 # some useful zsh options; do man zshoptions
-setopt extendedglob menucomplete nomatch interactive_comments
+setopt extendedglob menucomplete nomatch interactive_comments nocaseglob correct
 # stty stop undef         # Disable ctrl-s to freeze terminal.
 zle_highlight=('paste:none')
 
+
+## sources
+source "$HOME/.config/aliasrc"
+source $HOME/scripts/bash-insulter/bash-insulter
+eval "$(zoxide init --cmd cd zsh)"
 
 
 ## Theme Plugins
@@ -100,19 +123,5 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh 2>/dev/null
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-# Load autojump
-[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
-
-
-## sources
-source "$HOME/.config/aliasrc"
-source $HOME/scripts/bash-insulter/bash-insulter
-
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# export SDKMAN_DIR="$HOME/.sdkman"
-# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+bindkey '^K' history-substring-search-up
+bindkey '^J' history-substring-search-down

@@ -9,7 +9,7 @@ telescope.setup {
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
-    file_ignore_patterns = { "%.img", "%.jpg", "%.jpeg", "%.png" },
+    file_ignore_patterns = { "%.img", "%.jpg", "%.jpeg", "%.png", "%.scm" },
   },
 
   pickers = {

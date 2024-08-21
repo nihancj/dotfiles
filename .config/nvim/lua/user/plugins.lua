@@ -11,7 +11,6 @@ local core_plugins = {
 		lazy = false,
 	},
 
-
 	-- Completions, Diagnostic and Formatting
 	{
 		'neovim/nvim-lspconfig',
@@ -40,14 +39,8 @@ local core_plugins = {
 		}
 	},
 	{
-		"piersolenski/wtf.nvim",
-		config = function() F.lua_conf("wtf") end,
-		dependencies = "MunifTanjim/nui.nvim",
-		opts = {},
-		cmd = "Wtf",
-	},
-	{
 		'mfussenegger/nvim-dap',
+		lazy = true,
 		dependencies = {
 			{ 'rcarriga/nvim-dap-ui',
 				config = function() F.lua_conf('dap.dap-ui') end,
@@ -74,7 +67,6 @@ local core_plugins = {
 		dependencies = 'mfussenegger/nvim-dap',
 		config = function() F.lua_conf('dap.lua') end,
 		lazy = true,
-		ft = "lua"
 	},
 
 
@@ -139,28 +131,25 @@ local core_plugins = {
 		lazy = true,
 		cmd = 'NvimTreeToggle',
 	},
-	-- {
-	-- 	'stevearc/oil.nvim',
-	-- 	opts = {},
-	-- },
+	{
+		'stevearc/oil.nvim',
+		opts = {},
+	},
 	{
 		'mbbill/undotree',
 		lazy = true,
 		cmd= 'UndotreeToggle'
 	},
 	{
-		"iamcco/markdown-preview.nvim",
-		config = function() F.lua_conf("markdown-preview") end,
-		build = function() vim.fn["mkdp#util#install"]() end,
-		ft = 'markdown',
-	},
-	{ "tpope/vim-fugitive", },
-	-- { "sindrets/diffview.nvim" },
-	{
-		"NStefan002/speedtyper.nvim",
-		cmd = 'Speedtyper',
+		"lewis6991/gitsigns.nvim",
 		opts = {},
 	},
+	-- { "sindrets/diffview.nvim" },
+	-- {
+	-- 	"NStefan002/speedtyper.nvim",
+	-- 	cmd = 'Speedtyper',
+	-- 	opts = {},
+	-- },
 	-- {
 	-- 	'lervag/vimtex',
 	-- 	config = function() F.vim_conf('vimtex') end,
@@ -188,15 +177,15 @@ local core_plugins = {
 		config = function() F.lua_conf('lualine') end,
 		lazy = false,
 	},
-	{
-		'akinsho/bufferline.nvim',
-		config = function() F.lua_conf("bufferline") end,
-		dependencies = 'moll/vim-bbye'
-	},
-	{
-		'folke/which-key.nvim',
-		config = function() F.lua_conf('whichkey') end
-	},
+	-- {
+	-- 	'akinsho/bufferline.nvim',
+	-- 	config = function() f.lua_conf("bufferline") end,
+	-- 	dependencies = 'moll/vim-bbye'
+	-- },
+	-- {
+	-- 	'folke/which-key.nvim',
+	-- 	config = function() f.lua_conf('whichkey') end
+	-- },
 	{
 		'j-hui/fidget.nvim',
 		config = function() F.lua_conf("fidget") end,
@@ -210,10 +199,10 @@ local core_plugins = {
 
 
 	-- Useless
-	{
-		'tamton-aquib/zone.nvim',
-		cmd = 'Zone',
-	},
+	-- {
+	-- 	'tamton-aquib/zone.nvim',
+	-- 	cmd = 'Zone',
+	-- },
 
 
 
@@ -223,20 +212,37 @@ local core_plugins = {
 		config = function() F.lua_conf('plugin-switcher') end,
 		lazy = false,
 	},
-	{
-		dir = "~/nvim-plugins/oil.nvim",
-		config = function() F.lua_conf('oil') end,
-	},
-	{
-		dir = "~/nvim-plugins/diffview.nvim",
-		config = function() F.lua_conf('diffview') end,
-		cmd = 'DiffviewToggle'
-	}
+	-- {
+	-- 	dir = "~/nvim-plugins/oil.nvim",
+	-- 	config = function() F.lua_conf('oil') end,
+	-- },
+	-- {
+	-- 	dir = "~/nvim-plugins/diffview.nvim",
+	-- 	config = function() F.lua_conf('diffview') end,
+	-- 	cmd = 'DiffviewToggle'
+	-- }
 	-- {
 	-- 	dir = "~/nvim-plugins/telescope-readme.nvim",
 	-- 	config = function() F.telescope('readme') end,
 	-- 	lazy = false,
 	-- },
+	{
+		"adalessa/laravel.nvim",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"tpope/vim-dotenv",
+			"MunifTanjim/nui.nvim",
+			"nvimtools/none-ls.nvim",
+		},
+		cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
+		keys = {
+			{ "<leader>la", ":Laravel artisan<cr>" },
+			{ "<leader>lr", ":Laravel routes<cr>" },
+			{ "<leader>lm", ":Laravel related<cr>" },
+		},
+		event = { "VeryLazy" },
+		config = true,
+	}
 }
 
 

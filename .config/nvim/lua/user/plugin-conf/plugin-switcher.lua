@@ -13,9 +13,9 @@ local main_plugins = {
 	"nvim-surround",
 	"nvim-treesitter-context",
 	"telescope.nvim",
-	"bufferline.nvim",
-	"which-key.nvim",
-	"vim-fugitive",
+	-- "bufferline.nvim",
+	-- "which-key.nvim",
+	"gitsigns.nvim",
 	"oil.nvim",
 }
 
@@ -24,12 +24,12 @@ local minimal_plugins = {
 	"nvim-surround",
 	"nvim-treesitter-context",
 	"telescope.nvim",
-	"bufferline.nvim",
-	"which-key.nvim",
+	-- "bufferline.nvim",
+	-- "which-key.nvim",
 }
 
 local lua_plugins = {
-	"zone.nvim"
+	-- "zone.nvim"
 }
 
 switcher.setup({

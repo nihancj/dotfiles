@@ -16,8 +16,10 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 		formatting.rustfmt,
-		formatting.luaformatter,
 		formatting.clang_format.with({extra_args = { "--style=LLVM" } }),
+		formatting.blade_formatter,
+		-- formatting.tlint,
+		-- diagnostics.tlint,
 		-- diagnostics.eslint_d,
     -- diagnostics.flake8
 	},

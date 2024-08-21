@@ -28,5 +28,7 @@ aucmd("BufWritePost", {
 	command = "!sort -o %:p %:p",
 })
 
-vim.cmd("au BufRead xinitrc* setf sh")
 -- require("user.functions").lsp_format_on_save.enable()
+vim.cmd("au BufRead xinitrc* setf sh")
+vim.cmd("command! Sudow w !doas tee % > /dev/null")
+vim.cmd("command! AllowWhitespace lua vim.api.nvim_del_augroup_by_name('Remove trailing whitespace on save')")

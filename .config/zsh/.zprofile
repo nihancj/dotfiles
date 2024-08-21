@@ -1,8 +1,10 @@
+printf "start"
 if [ -f /run/tmpfiles.d/logged_in_once ]; then
-	exec $HOME/scripts/session-picker.sh
+	exec $($HOME/scripts/session-picker.sh)
+else
+	doas touch /run/tmpfiles.d/logged_in_once
+	exec $($HOME/scripts/session-picker.sh $DEFAULT_SESSION_NAME)
 fi
-doas touch /run/tmpfiles.d/logged_in_once
-exec $HOME/scripts/session-picker.sh $DEFAULT_SESSION_NAME
 
 # [[ ! $DISPLAY && $XDG_VTNR -eq 2 ]] && sx "$XINITRC.qtile" >/dev/null
 # [[ ! $DISPLAY && $XDG_VTNR -eq 3 ]] && sx "$XINITRC.openbox" >/dev/null

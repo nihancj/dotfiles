@@ -4,6 +4,16 @@ local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok and status_ok_1 and status_ok then return end
 
 -- local lsp_servers = { "rust_analyzer", "lua_ls", "gopls", "vimls", "bashls", "tsserver", "clangd" }
+require("lspconfig.configs").blade = {
+  default_config = {
+    -- Path to the executable: laravel-dev-generators
+    cmd = { "/home/user/.local/bin/new/laravel-dev-tools", "lsp" },
+    filetypes = {'blade'},
+    settings = {},
+  };
+}
+local custom_lsp = { "blade" }
+
 local lsp_servers = mason_lspconfig.get_installed_servers()
 local settings = {
 	ui = {
@@ -23,6 +33,12 @@ mason_lspconfig.setup({
 	automatic_installation = false,
 })
 
+-- Set it up
+-- lspconfig.blade.setup{
+  -- Capabilities is specific to my setup.
+-- 	capabilities = require("user.plugin-conf.lsp.handlers").capabilities,
+-- }
+
 local opts = {}
 
 for _, server in pairs(lsp_servers) do
@@ -39,3 +55,8 @@ for _, server in pairs(lsp_servers) do
 
 	lspconfig[server].setup(opts)
 end
+
+-- lspconfig.phpactor.setup({
+-- filetypes = { "php", "blade" },
+-- })
+require'luasnip'.filetype_extend("blade", {"html"})

@@ -5,6 +5,7 @@ local keymaps = require("user.functions").keymaps
     vim.g.mapleader = " "
     --vim.g.maplocalleader = " "
 
+
 -- Normal --
 local normal_mode = {
     -- Resize with arrows
@@ -14,26 +15,27 @@ local normal_mode = {
 	{ "<C-Right>", "<cmd>vertical resize +2<CR>" },
 
     -- Navigate buffers
-	{ "<A-l>", "<cmd>bnext<CR>" },
-	{ "<A-h>", "<cmd>bprevious<CR>" },
+	{ "<A-h>", "<cmd>e #<CR>" },
+	{ "<A-l>", "<cmd>Telescope buffers<CR>" },
 	{ "<A-j>", "<cmd>bnext<CR>" },
 	{ "<A-k>", "<cmd>bprevious<CR>" },
-	{ "<A-Q>", "<cmd>bdelete!<CR>" },
+	{ "<A-BS>", "<cmd>bdelete!<CR>" },
 	{ "<A-w>", "<cmd>write!<CR>" },
 	{ "<A-W>", "<C-w>wa!" },
+	{ "<A-Q>", "<cmd>bufdo bwipeout<CR>" },
 
     -- Navigate Splits
     { "<A-H>", "<C-w>h" },
 	{ "<A-J>", "<C-w>j" },
 	{ "<A-K>", "<C-w>k" },
 	{ "<A-L>", "<C-w>l" },
-	{ "<C-w>", "<C-w>w" },
+	-- { "<C-w>", "<C-w>w" },
 	{ "<C-q>", "<cmd>close!<CR>" },
 
 
     -- Auto commenting toggles
 	{ "<C-c>", "<cmd>ColorizerToggle<CR>" },
-    -- keymap("n", "<C-S>c", "<cmd>setlocal formatoptions=cro<CR>" },
+	{ "<leader>wf", "<cmd>lua vim.lsp.buf.format()<CR>" },
 
     -- Auto indent toggles
 	{ "<C-i>", "<cmd>setlocal autoindent<CR>" },
@@ -51,7 +53,7 @@ local normal_mode = {
 
     -- Load different neovim configs
     { "<leader>sv", "<cmd>lua require'functions'.reload_nvim()<CR>"},
-    { "<leader>sm", "<cmd>SwitchPlugins main<CR>"},
+    { "<leader>sm", "<cmd>Pload main<CR>"},
 
 	-- Nvim dap
 	-- { "<leader>ds", ":vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-w>=', false, true, true), 'n', false)", { desc = 'Start/Stop'} },
@@ -74,6 +76,23 @@ local normal_mode = {
 	{ '<leader>de', "<cmd>lua require('dapui').eval()<cr>",{ desc = 'Eval' }},
 	{ '<leader>du', "<cmd>lua require('dapui').toggle({})<cr>",{ desc = 'Dap UI' }},
 	{ "<leader>dv", ":DapVirtualTextToggle", desc = "Dap text" },
+
+	-- Telescope
+    { "<leader>fo", "<cmd>Telescope oldfiles<cr>" },
+    { "<leader>fl", "<cmd>Telescope resume<cr>" },
+    { "<leader>fp", "<cmd>Telescope project<cr>" },
+    { "<leader>fS", "<cmd>Telescope grep_string<cr>" },
+    { "<leader>fr", "<cmd>Telescope registers<cr>" },
+    { "<leader>ft", "<cmd>Telescope live_grep<cr>" },
+    { "<leader>fk", "<cmd>Telescope keymaps<cr>" },
+    { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files({no_ignore=true})<cr>" },
+    { "<leader>f:", "<cmd>Telescope commands<cr>" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>" },
+    { "<leader>fH", "<cmd>Telescope highlights<cr>" },
+    { "<leader>fb", "<cmd>Telescope git_branches<cr>" },
+    { "<leader>fq", "<cmd>Telescope buffers<cr>" },
+    { "<leader>fj", "<cmd>Telescope jumplist<cr>" },
+    { "<leader>u", "<cmd>UndotreeToggle<CR>" },
 }
 
 
@@ -119,6 +138,8 @@ local term_mode = {
 	{ "<C-k>", "<C-\\><C-N><C-w>k" },
 	{ "<C-l>", "<C-\\><C-N><C-w>l" },
 }
+
+
 
 
 for _, list in ipairs(normal_mode) do

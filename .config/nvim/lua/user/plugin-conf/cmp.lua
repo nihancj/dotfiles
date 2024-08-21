@@ -92,20 +92,22 @@ cmp.setup {
     --   "i",
     --   "s",
     -- }),
-    -- ["<Right>"] = cmp.mapping(function(fallback)
-    --   if luasnip.expandable() then
-    --     luasnip.expand()
-    --   elseif luasnip.expand_or_jumpable() then
-    --     luasnip.expand_or_jump()
-    --   elseif check_backspace() then
-    --     fallback()
-    --   else
-    --     fallback()
-    --   end
-    -- end, {
-    --   "i",
-    --   "s",
-    -- }),
+    -- ["<C-l>"] = cmp.mapping(function(fallback)
+    ["<A-;>"] = cmp.mapping(function(fallback)
+      if luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      elseif check_backspace() then
+        fallback()
+      else
+        fallback()
+      end
+    end, {
+      "i",
+      -- "s",
+    }),
+    -- ["<C-h>"] = cmp.mapping(function(fallback)
     -- ["<Left>"] = cmp.mapping(function(fallback)
     --   if luasnip.jumpable(-1) then
     --     luasnip.jump(-1)
@@ -114,7 +116,7 @@ cmp.setup {
     --   end
     -- end, {
     --   "i",
-    --   "s",
+    --   -- "s",
     -- }),
   }),-- }}}
 
@@ -155,4 +157,8 @@ cmp.setup {
     ghost_text = false,
     native_menu = false,
   },
+
+  matching = {
+    disallow_prefix_unmatching = false,
+  }
 }

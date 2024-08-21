@@ -1,7 +1,7 @@
 require("oil").setup({
   -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
   -- Set to false if you still want to use netrw.
-  default_file_explorer = false,
+  default_file_explorer = true,
   -- Id is automatically added at the beginning, and name at the end
   -- See :help oil-columns
   columns = {
@@ -26,6 +26,7 @@ require("oil").setup({
     conceallevel = 3,
     concealcursor = "nvic",
   },
+  default_floating_win = true,
   -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
   delete_to_trash = false,
   -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
@@ -89,7 +90,6 @@ require("oil").setup({
   },
   -- Configuration for the floating window in oil.open_float
   float = {
-	open_by_default = true,
     -- Padding around the floating window
     padding = 2,
     max_width = 0,
