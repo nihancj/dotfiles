@@ -16,7 +16,7 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 		formatting.rustfmt,
-		formatting.clang_format.with({extra_args = { "--style=LLVM" } }),
+		formatting.clang_format.with({extra_args = { "--style=LLVM --use-tabs" } }),
 		formatting.blade_formatter,
 		-- formatting.tlint,
 		-- diagnostics.tlint,

@@ -125,3 +125,8 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^K' history-substring-search-up
 bindkey '^J' history-substring-search-down
+
+export LFS=/mnt/lfs
+
+# Set different python version
+eval "$(pyenv init - zsh)"

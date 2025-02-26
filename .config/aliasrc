@@ -8,7 +8,6 @@ alias \
 	ls='exa -al --color=always --group-directories-first' \
 	pacman='doas pacman' \
 	p='doas pacman -S' \
-	rm='trash-put' \
     vimu='~/sources/neovim/build/bin/nvim -u NONE' \
     wget=wget --hsts-file="$XDG_STATE_HOME/wget-hsts" \
 	ytd="yt-dlp -f 'bv[height<=1080][ext=mp4]+ba'" \

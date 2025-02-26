@@ -95,7 +95,8 @@ local core_plugins = {
 	-- Typing
 	{
 		'windwp/nvim-autopairs',
-		config = function() F.lua_conf('autopairs') end,
+		-- config = function() F.lua_conf('autopairs') end,
+		opts = {},
 	},
 	{
 		'numToStr/Comment.nvim',

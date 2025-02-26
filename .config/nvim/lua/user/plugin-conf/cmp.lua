@@ -105,7 +105,7 @@ cmp.setup {
       end
     end, {
       "i",
-      -- "s",
+      "s",
     }),
     -- ["<C-h>"] = cmp.mapping(function(fallback)
     -- ["<Left>"] = cmp.mapping(function(fallback)

@@ -8,9 +8,20 @@ local hide_in_width = function()
 
 
 local mode = { --{{{
-    function()
-      return "   "
-    end,
+	"mode",
+	-- function(str)
+	--   return "   "
+	-- end,
+	fmt = function(str)
+		if (str == 'NORMAL') then
+			return "   "
+		end if (str == 'INSERT') then
+			return "   "
+		end if (str:sub(1,1) == 'V') then
+			return "   "
+		end
+		return str
+	end,
     padding = { left = 0, right = 0 },
     color = {},
     cond = nil,

@@ -5,7 +5,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 
 # Paths
-export PATH=$PATH:$HOME/.local/bin:$HOME/Applications:$XDG_DATA_HOME/nvim/mason/bin:/opt/Android/SDK
+export PATH=$PATH:$HOME/.local/bin:$HOME/Applications:$XDG_DATA_HOME/nvim/mason/bin:/opt/Android/SDK:$XDG_CONFIG_HOME/composer/vendor/bin:$PYENV_ROOT/bin
 
 # Disable files
 export LESSHISTFILE=-
@@ -36,6 +36,8 @@ export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
 export GOPATH="$XDG_DATA_HOME"/go
 export ANDROID_HOME="$XDG_DATA_HOME"/android
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+export PYENV_ROOT="$XDG_DATA_HOME"/pyenv
+export LD_LIBRARY_PATH="$XDG_DATA_HOME"/pyenv/versions/3.12.8/lib
 # export SDKMAN_DIR="$XDG_DATA_HOME"/sdkman
 
 # pfetch settings
@@ -49,3 +51,5 @@ export ENV="$HOME/.config/sh/shinit"
 export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
+
+export LFS=/mnt/lfs
