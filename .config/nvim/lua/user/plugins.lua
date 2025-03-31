@@ -145,6 +145,18 @@ local core_plugins = {
 		"lewis6991/gitsigns.nvim",
 		opts = {},
 	},
+	{
+		"sontungexpt/url-open",
+		event = "VeryLazy",
+		cmd = "URLOpenUnderCursor",
+		config = function()
+			local status_ok, url_open = pcall(require, "url-open")
+			if not status_ok then
+				return
+			end
+			url_open.setup ({})
+		end,
+	},
 	-- { "sindrets/diffview.nvim" },
 	-- {
 	-- 	"NStefan002/speedtyper.nvim",
@@ -227,23 +239,6 @@ local core_plugins = {
 	-- 	config = function() F.telescope('readme') end,
 	-- 	lazy = false,
 	-- },
-	{
-		"adalessa/laravel.nvim",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"tpope/vim-dotenv",
-			"MunifTanjim/nui.nvim",
-			"nvimtools/none-ls.nvim",
-		},
-		cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
-		keys = {
-			{ "<leader>la", ":Laravel artisan<cr>" },
-			{ "<leader>lr", ":Laravel routes<cr>" },
-			{ "<leader>lm", ":Laravel related<cr>" },
-		},
-		event = { "VeryLazy" },
-		config = true,
-	}
 }
 
 
