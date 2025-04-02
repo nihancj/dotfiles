@@ -32,7 +32,7 @@ keymap = {
 	['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
 	['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
 
-	['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
+	['<C-u>'] = { 'show_signature', 'hide_signature', 'fallback' },
 },
 
 appearance = {
@@ -57,5 +57,4 @@ sources = {
 -- See the fuzzy documentation for more information
 fuzzy = { implementation = "prefer_rust_with_warning" },
 
-cmdline.enabled = false,
 })
