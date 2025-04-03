@@ -6,8 +6,7 @@ end
 local M = {}
 
 M.autogroup = function(text)
-	local group = vim.api.nvim_create_augroup(text, { clear = true })
-	return group
+	return vim.api.nvim_create_augroup(text, { clear = true })
 end
 
 M.keymaps = {
@@ -25,12 +24,6 @@ M.plugin_config = {
 	lua_conf = function(plugin)
 		plugin = "user.plugin-conf." .. plugin
 		pcall(require, plugin)
-	end,
-	vim_conf = function(plugin)
-		vim.cmd('source /home/user/.config/nvim/lua/user/plugin-conf/' .. plugin .. '.vim')
-	end,
-	telescope = function(extension)
-		require("telescope").load_extension(extension)
 	end,
 }
 

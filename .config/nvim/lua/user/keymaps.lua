@@ -15,7 +15,7 @@ local maps = {
 
 	-- Navigate buffers
 	{ "<A-h>", "<cmd>e #<CR>" },
-	{ "<A-l>", "<cmd>Telescope buffers<CR>" },
+	{ "<A-l>", "<cmd>FzfLua buffers<CR>" },
 	{ "<A-j>", "<cmd>bnext<CR>" },
 	{ "<A-k>", "<cmd>bprevious<CR>" },
 	{ "<A-BS>", "<cmd>bdelete!<CR>" },
