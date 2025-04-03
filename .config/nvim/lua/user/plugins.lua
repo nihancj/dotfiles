@@ -4,6 +4,7 @@ local F = require("user.functions").plugin_config
 local plugins = {
 	{
 		'saghen/blink.cmp',
+		version = '1.*',
 		dependencies = { 'rafamadriz/friendly-snippets' },
 		config = function() F.lua_conf('blink') end,
 		opts_extend = { "sources.default" }
