@@ -15,7 +15,8 @@ local plugins = {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		opts = {},
+		build = ":TSUpdate",
+		opts = require("user.plugin-conf.nvim-treesitter"),
 	},
 	{
 		'windwp/nvim-autopairs',
