@@ -43,6 +43,10 @@ local maps = {
 
 	-- NvimTree
 	{ "<C-n>", "<cmd>NvimTreeToggle<CR>" },
+
+	-- Source Neovim
+	{ "<space><space>x", "<cmd>source %<CR>" },
+	{ "<space>x", ":.lua<CR>" },
 },
 
 
@@ -67,6 +71,9 @@ local maps = {
 	{ "<S-h>", "<gv" },
 	{ "<S-l>", ">gv" },
 	-- { "p", '"_dP' },
+
+	-- Source Neovim
+	{ "<space>x", ":lua<CR>" },
 },
 
 
