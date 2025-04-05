@@ -1,22 +1,21 @@
-local F = require("user.functions").plugin_config
-
+local opts = require("user.functions").plugin_config.lua_opts
 
 local plugins = {
 	{
 		'saghen/blink.cmp',
 		version = '1.*',
 		dependencies = { 'rafamadriz/friendly-snippets' },
-		config = function() F.lua_conf('blink') end,
+		config = opts('blink'),
 		opts_extend = { "sources.default" }
 	},
 	{
 	  "ibhagwan/fzf-lua",
-	  config = function() F.lua_conf('fzf-lua') end,
+	  config = opts('fzf-lua'),
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		opts = require("user.plugin-conf.nvim-treesitter"),
+		opts = opts('nvim-treesitter'),
 	},
 	{
 		'windwp/nvim-autopairs',
@@ -29,18 +28,17 @@ local plugins = {
 	},
 	{
 		'nvim-treesitter/nvim-treesitter-context',
-		config = function() F.lua_conf('treesitter-context') end,
 		opts = { "hi TreesitterContext gui=underline guisp=Grey" }
 	},
 	{
 		'kyazdani42/nvim-tree.lua',
 		lazy = true,
 		cmd = 'NvimTreeToggle',
-		config = function() F.lua_conf('nvim-tree') end,
+		config = opts('nvim-tree'),
 	},
 	{
 		'nvim-lualine/lualine.nvim',
-		config = function() F.lua_conf('lualine') end,
+		opts = opts('lualine'),
 	},
 	{ 'rebelot/kanagawa.nvim',
 		lazy = false,

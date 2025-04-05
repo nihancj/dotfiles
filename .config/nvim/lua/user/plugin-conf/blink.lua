@@ -1,5 +1,4 @@
-cmp = require("blink.cmp")
-cmp.setup({
+return{
 -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
 -- 'super-tab' for mappings similar to vscode (tab to accept)
 -- 'enter' for enter to accept
@@ -57,4 +56,4 @@ sources = {
 -- See the fuzzy documentation for more information
 fuzzy = { implementation = "prefer_rust_with_warning" },
 
-})
+}

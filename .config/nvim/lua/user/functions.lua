@@ -25,6 +25,9 @@ M.plugin_config = {
 		plugin = "user.plugin-conf." .. plugin
 		pcall(require, plugin)
 	end,
+	lua_opts = function (plugin_name)
+		return require("user.plugin-conf." .. plugin_name)
+	end,
 }
 
 M.lsp_format_on_save = {

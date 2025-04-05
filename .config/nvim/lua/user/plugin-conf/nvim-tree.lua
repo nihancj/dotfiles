@@ -1,5 +1,3 @@
-local nvim_tree = require"nvim-tree"
-
 local function on_attach(bufnr)
   local api = require('nvim-tree.api')
   local function opts(desc)
@@ -20,6 +18,6 @@ local function on_attach(bufnr)
   vim.keymap.set('n', ';', api.tree.change_root_to_node, opts('CD'))
 end
 
-nvim_tree.setup {
+return {
   on_attach = on_attach,
 }
