@@ -18,6 +18,9 @@ M.keymaps = {
 		end
 		vim.api.nvim_set_keymap(list[1], list[2], list[3], list[4])
 	end,
+	nmap = function (list)
+		M.keymaps.map("n", list)
+	end,
 }
 
 M.plugin_config = {

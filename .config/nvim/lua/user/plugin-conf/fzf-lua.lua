@@ -1,9 +1,9 @@
-local map = require("user.functions").keymaps.map
+local nmap = require("user.functions").keymaps.nmap
 
-map("n", {"<leader>ff", "<cmd>FzfLua files<CR>"})
-map("n", {"<leader>fo", "<cmd>FzfLua oldfiles<CR>"})
-map("n", {"<leader>fh", "<cmd>FzfLua helptags<CR>"})
-map("n", {"<leader>f", "<cmd>FzfLua<CR>"})
-map("n", {"<leader>fn", "<cmd>FzfLua files cwd=~/.config/nvim<CR>"})
+nmap {"<leader>ff", "<cmd>FzfLua files<CR>"}
+nmap {"<leader>fo", "<cmd>FzfLua oldfiles<CR>"}
+nmap {"<leader>fh", "<cmd>FzfLua helptags<CR>"}
+nmap {"<leader>f", "<cmd>FzfLua<CR>"}
+nmap {"<leader>fn", "<cmd>FzfLua files cwd=~/.config/nvim<CR>"}
 
 return {}
