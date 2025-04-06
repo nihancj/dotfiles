@@ -1,4 +1,5 @@
 local opts = require("user.functions").plugin_config.lua_opts
+local conf = require("user.functions").plugin_config.lua_conf
 
 local plugins = {
 	{
@@ -15,7 +16,7 @@ local plugins = {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
-		opts = opts('nvim-treesitter'),
+		config = function () conf('nvim-treesitter') end
 	},
 	{
 		'windwp/nvim-autopairs',
@@ -46,6 +47,7 @@ local plugins = {
 	},
 	{
 		'stevearc/oil.nvim',
+		opts = {},
 		cmd = 'Oil'
 	},
 	{
