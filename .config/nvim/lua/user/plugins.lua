@@ -19,6 +19,16 @@ local plugins = {
 		config = function () conf('nvim-treesitter') end
 	},
 	{
+		'mfussenegger/nvim-dap',
+		dependencies = {
+			'rcarriga/nvim-dap-ui',
+			dependencies = 'nvim-neotest/nvim-nio',
+			opts = {},
+		},
+		config = function () conf('dap') end,
+		cmd = "DapUIToggle"
+	},
+	{
 		'windwp/nvim-autopairs',
 		opts = {},
 	},
