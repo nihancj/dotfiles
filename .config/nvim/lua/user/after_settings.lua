@@ -17,4 +17,11 @@ aucmd("BufWritePost", {
 	command = "!sort -o %:p %:p",
 })
 
+aucmd("FileType", {
+	pattern = "*",
+	callback = function()
+		vim.opt_local.formatoptions:remove({ 'r', 'o' })
+	end
+})
+
 vim.cmd("colorscheme kanagawa")
