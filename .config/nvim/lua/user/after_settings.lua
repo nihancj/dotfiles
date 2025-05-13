@@ -25,3 +25,4 @@ aucmd("FileType", {
 })
 
 vim.cmd("colorscheme kanagawa")
+vim.cmd("command! Sudow w !doas tee % > /dev/null")
