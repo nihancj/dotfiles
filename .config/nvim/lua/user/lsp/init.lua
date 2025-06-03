@@ -1,6 +1,7 @@
 require("user.lsp.luals")
 require("user.lsp.clangd")
 require("user.lsp.rust-analyzer")
+require("user.lsp.pyright")
 
 vim.diagnostic.config({virtual_text = { current_line = true }})
 
