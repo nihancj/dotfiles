@@ -1,0 +1,11 @@
+[ -x /bin/openbox ] || exit 1
+$XINITRC
+
+randombg "200" "-q" &
+picom &
+# redshift -l "10.85:76.27" &
+# unclutter -idle 2 &
+tint2 &
+sxhkd &
+
+exec openbox

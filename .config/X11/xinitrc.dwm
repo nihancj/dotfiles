@@ -1,0 +1,23 @@
+[ -x /usr/local/bin/dwm ] || exit 1
+$XINITRC
+
+xwallpaper --zoom $HOME/.local/share/wallpaper &
+# xrdb -merge -I$HOME ~/.local/share/xresources.d/selected-colors
+dwmblocks &
+picom &
+dunst &
+redshift -l "10.85:76.27" &
+/usr/lib/ts-polkitagent &
+# trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --alpha 0 --height 19 &
+unclutter -idle 2 &
+sxhkd &
+
+# randombg "a/200" "-q"
+# (pywal-gen -i && xrdb -merge -I$HOME ~/.local/share/xresources.d/selected-colors)
+
+(sleep 1s && pkill -RTMIN+1 dwmblocks) &
+(sleep 5s && pkill -RTMIN+2 dwmblocks) &
+
+/home/user/scripts/listen_and_launch_heroic.sh &
+
+exec dwm

@@ -6,10 +6,10 @@ aucmd("InsertEnter", {
 	command = "norm zz",
 })
 
-aucmd("BufWritePre", {
-	group = augrp("Remove trailing whitespace on save"),
-	command = "%s/\\s\\+$//e",
-})
+-- aucmd("BufWritePre", {
+-- 	group = augrp("Remove trailing whitespace on save"),
+-- 	command = "%s/\\s\\+$//e",
+-- })
 
 aucmd("BufWritePost", {
 	group = augrp("Sort dmenu apps"),
