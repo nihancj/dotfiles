@@ -1,0 +1,47 @@
+# Basic binds
+super + Return
+        st
+super + p
+        dmenu-custom
+super + r
+        rofi -show run
+# {XF86AudioRaiseVolume,XF86AudioLowerVolume}
+#         wpctl set-volume @DEFAULT_SINK@ 5%{+,-} ; volnoti ; kill -38 $(pidof dwmblocks)
+{XF86AudioRaiseVolume,XF86AudioLowerVolume}
+        pactl -- set-sink-volume 0 {+,-}5% ; volnoti ; kill -38 $(pidof dwmblocks)
+XF86AudioMute
+        pactl -- set-sink-mute 0 toggle ; volnoti ; kill -38 $(pidof dwmblocks)
+{XF86Mail,XF86Search}
+        light -{U,A} 5; brinoti
+{XF86MonBrightnessDown,XF86MonBrightnessUp}
+        light -{U,A} 5; brinoti
+super + shift + r
+        pkill -USR1 -x sxhkd
+super + q
+        quit
+super + shift + q; {l,s,r,p}
+        quit {" Logout", " Shutdown", " Restart", " Sleep"}
+
+# Hotkeys
+super + shift + p
+        dmenu_run
+super + {v,shift + v}
+        launch-workspace-program { ,+}
+super + o; {t,e,n,v,l,f,y,d,w,b,r}
+        {$TERMINAL,launch-program vim,launch-program vim,launch-program vim,$FILEMANAGER,$FILEMANAGERPLUS,launch-program youtube,launch-program youtube-dm,launch-program WhatsApp,$BROWSER,/home/user/scripts/remap-keys.sh}
+
+# Necessary
+f8
+		monitor-layouts
+super + e
+        emojis
+# Caps_Lock
+# 	caps-check &
+
+# Useless
+shift + {XF86Mail,XF86Search}
+        light -{U,A} 1; brinoti
+shift + {XF86MonBrightnessDown,XF86MonBrightnessUp}
+        light -{U,A} 1; brinoti
+shift + {XF86AudioRaiseVolume,XF86AudioLowerVolume}
+        pactl -- set-sink-volume 0 {+,-}1% ; volnoti ; kill -38 $(pidof dwmblocks)
